@@ -14,7 +14,7 @@ class Home extends React.Component<HomeProps> {
         description: "Item 1",
         quantity: 0,
         unit_price: 1.0,
-        total_price: 0.0
+        total_price: 0.0,
       }),
       makeCartItem({
         pos: 1,
@@ -22,7 +22,7 @@ class Home extends React.Component<HomeProps> {
         description: "Item 2",
         quantity: 0,
         unit_price: 2.0,
-        total_price: 0.0
+        total_price: 0.0,
       }),
       makeCartItem({
         pos: 2,
@@ -30,7 +30,7 @@ class Home extends React.Component<HomeProps> {
         description: "Item 3",
         quantity: 0,
         unit_price: 3.0,
-        total_price: 0.0
+        total_price: 0.0,
       }),
       makeCartItem({
         pos: 3,
@@ -38,9 +38,9 @@ class Home extends React.Component<HomeProps> {
         description: "Item 4",
         quantity: 0,
         unit_price: 4.0,
-        total_price: 0.0
-      })
-    ]
+        total_price: 0.0,
+      }),
+    ],
   };
 
   handleCreate = () => {
@@ -52,7 +52,7 @@ class Home extends React.Component<HomeProps> {
         description: "Item " + (items.length + 1),
         quantity: 0,
         unit_price: items.length + 1.0,
-        total_price: 0.0
+        total_price: 0.0,
       })
     );
     this.setState({ items });
@@ -61,7 +61,7 @@ class Home extends React.Component<HomeProps> {
   handleReset = () => {
     const items = [...this.state.items];
     // eslint-disable-next-line
-    items.map(item => {
+    items.forEach((item) => {
       item.quantity = 0;
       item.total_price = 0;
     });
@@ -87,9 +87,9 @@ class Home extends React.Component<HomeProps> {
   };
 
   handleDelete = (item: CartItem) => {
-    const items = this.state.items.filter(c => c.pos !== item.pos);
+    const items = this.state.items.filter((c) => c.pos !== item.pos);
     let nid = 0;
-    items.map(i => (i.pos = nid++));
+    items.forEach((i) => (i.pos = nid++));
     this.setState({ items });
   };
 
@@ -98,9 +98,11 @@ class Home extends React.Component<HomeProps> {
       <IonPage>
         <IonHeader>
           <NavBar
-            totalCounters={this.state.items.filter(c => c.quantity > 0).length}
+            totalCounters={
+              this.state.items.filter((c) => c.quantity > 0).length
+            }
             totalPrice={this.state.items
-              .filter(c => c.total_price > 0)
+              .filter((c) => c.total_price > 0)
               .reduce((a, b) => a + (b.total_price || 0), 0)}
           />
         </IonHeader>

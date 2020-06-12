@@ -11,3 +11,7 @@ To run the generic-cart after checkout from GIT:
 
 - cd generic-cart
 - ionic serve
+
+## Developer's Notes
+
+In React properties are being passed down the component tree to facilitate data synchronization between components within the tree
