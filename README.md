@@ -15,3 +15,7 @@ To run the generic-cart after checkout from GIT:
 ## Developer's Notes
 
 In React properties are being passed down the component tree to facilitate data synchronization between components within the tree
+
+## Disclaimer
+
+This is my first attempt to do typescript based UI
